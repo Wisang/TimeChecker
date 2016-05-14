@@ -1,10 +1,18 @@
-var Express = require('express');
+var express = require('express');
+var exphbs  = require('express-handlebars');
 
-var app = new Express;
+var app = express();
+
+app.set('views', 'app/views');
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  layoutsDir: "app/views/layouts/"
+}));
+app.set('view engine', 'hbs');
 
 app.get('/', function(req, res) {
-  console.log(req);
-  res.send('Hello world');
+  res.render('home');
 });
 
 app.listen(3000);
