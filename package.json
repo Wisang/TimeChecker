@@ -1,0 +1,23 @@
+{
+  "name": "time-checker",
+  "version": "0.1.0",
+  "description": "This is to check office time",
+  "main": "app/server.js",
+  "scripts": {
+    "start": "node app/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wisang/TimeChecker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wisang/TimeChecker/issues"
+  },
+  "homepage": "https://github.com/Wisang/TimeChecker#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
