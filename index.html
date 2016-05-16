@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+	<title>Time Checker</title>
+
+	<script>
+
+	function showCurrentTime() {
+
+		var clock = document.getElementById("clock");
+
+		var now = new Date();//
+
+		var currentTime = now.getFullYear() + " " + (now.getMonth()+1) + " " + now.getDate() + " " + now.getHours() + " " + now.getMinutes() + " " + now.getSeconds() + " ";
+
+		clock.innerHTML = currentTime;
+
+		setTimeout("showCurrentTime()",1000);
+	}
+
+	window.onload = function() { 
+
+		showCurrentTime();
+	}
+
+	function printCurrentTime(element) {
+		var now = new Date();
+
+		var timeElement = document.getElementById(element);
+
+		var currentTime = now.getFullYear() + " " + (now.getMonth()+1) + " " + now.getDate() + " " + now.getHours() + " " + now.getMinutes() + " " + now.getSeconds() + " ";
+
+
+		timeElement.innerHTML = currentTime;
+	}
+
+</script>
+
+<body>
+
+	<span id="clock"></span> <br><br>
+
+	<button type="button" id="btn-check-in" onClick = "printCurrentTime('check_in')">Check In</button>
+	<span id = "check_in"></span> <br><br>
+
+	<button type="button" id="btn-check-out" onClick = "printCurrentTime('check_out')">Check Out</button>
+	<span id = "check_out"></span>
+
+</body>
+
+</html>
