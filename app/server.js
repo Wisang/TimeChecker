@@ -1,3 +1,4 @@
+var env  = require('./constant');
 var app  = require('express')();
 var hbs  = require('express-handlebars');
 var http = require('http').Server(app);
@@ -16,7 +17,8 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-  console.log('a user connected');
+  console.log('a user connected', socket.id);
+  socket.emit(env.TIMESTAMP_EVENT, new Date());
   socket.on('disconnect', function() {
     console.log('user disconnected');
   });
