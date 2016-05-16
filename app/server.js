@@ -29,10 +29,18 @@ app.get('/', function(req, res) {
 
 io.on('connection', function(socket) {
   console.log('a user connected', socket.id);
-  socket.emit(env.TIMESTAMP_EVENT, new Date());
-  socket.on('client hello', function(msg) {
-    console.log('client hello', socket.id, msg);
+  socket.emit(env.TIMESTAMP, Date.now());
+
+  socket.on(env.CHECK_IN, function(msg) {
+    console.log(env.CHECK_IN, socket.id, msg);
+    socket.emit(env.TIMESTAMP, Date.now());
   });
+
+  socket.on(env.CHECK_OUT, function(msg) {
+    console.log(env.CHECK_OUT, socket.id, msg);
+    socket.emit(env.TIMESTAMP, Date.now());
+  });
+
   socket.on('disconnect', function() {
     console.log('user disconnected');
   });

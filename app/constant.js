@@ -1,5 +1,7 @@
 var env = {};
 
-env.TIMESTAMP_EVENT = 'server timestamp';
+env.TIMESTAMP = 'server timestamp';
+env.CHECK_IN  = 'client check-in';
+env.CHECK_OUT = 'client check-out';
 
 module.exports = env;
